@@ -14,8 +14,8 @@ class Program
         // Create new Scripture object
         Scripture scripture = new Scripture();
         // Call setter to assign value to variable
-        //scripture.SetScripture("For where your treasure is, there will your heart be also.");
-        scripture.SetScripture("This is a test.");
+        scripture.SetScripture("For where your treasure is, there will your heart be also.");
+        //scripture.SetScripture("This is a test.");
 
         Console.Clear();
 
