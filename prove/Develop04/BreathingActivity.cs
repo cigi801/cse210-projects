@@ -7,6 +7,10 @@ class BreathingActivity : Activity
 
     }
 
+
+    //base.SetDuration(duration);
+
+
     /*
     public BreathingActivity(string description)
     {
@@ -36,17 +40,19 @@ class BreathingActivity : Activity
 
         while (milliseconds < _duration)
         {
-            Console.WriteLine("\nBreath in...");
-            //Pausing for 4 seconds
-            Thread.Sleep(4000);
-            milliseconds += 4;
-            Console.WriteLine("\nNow breath out...");
-            //Pausing for 4 seconds
-            Thread.Sleep(4000);
-            milliseconds += 4;
+            Console.Write("\nBreath in... ");
+            //Pausing for 5 seconds
+            countdown();
+            milliseconds += 5;
+            Console.Write("\nNow breath out... ");
+            //Pausing for 5 seconds
+            countdown();
+
+            milliseconds += 5;
 
             if (milliseconds >= _duration)
             {
+                Console.WriteLine();
                 Console.WriteLine("\nWell done!!");
                 spinAnimation();
                 Console.WriteLine($"\nYou have completed {_duration} seconds of the Breathing Activity.\n");

@@ -40,7 +40,7 @@ class ListingActivity : Activity
 
         Console.WriteLine("Get ready...");
         spinAnimation();
-
+        Console.Clear();
         Console.WriteLine("\nList as many responses you can to the following prompt: ");
         promptGenerator();
 

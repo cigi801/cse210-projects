@@ -51,7 +51,7 @@ class Activity
 
     public void SetActivityName(string activityName)
     {
-        _activityName = activityName;
+        this._activityName = activityName;
     }
 
     public string GetDescription(string _description)
@@ -113,7 +113,10 @@ class Activity
 
     public void countdown()
     {
-        Console.Write("4");
+        Console.Write("5");
+        Thread.Sleep(1000);
+        Console.Write("\b \b"); // Erase the 5 character
+        Console.Write("4"); // Replace it with the 4 character
         Thread.Sleep(1000);
         Console.Write("\b \b"); // Erase the 4 character
         Console.Write("3"); // Replace it with the 3 character
