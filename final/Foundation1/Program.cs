@@ -4,14 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        using System;
-using System.Collections.Generic;
-
-
-class Program
-{
-    static void Main(string[] args)
-    {
         List<Video> videos = new List<Video>();
 
         Video video1 = new Video("Cat drives its owner to the hospital", "Beverly.Manadoo573", 8);
@@ -52,5 +44,5 @@ class Program
 
     }
 }
-    }
-}
+
+
