@@ -1,7 +1,7 @@
 class Order
 {
-    private List<Product> _products;
-    private Customer _customer;
+    protected List<Product> _products;
+    protected Customer _customer;
 
     public Order(Customer customer)
     {
@@ -17,7 +17,7 @@ class Order
     public double GetTotalPrice()
     {
         double total = 0;
-        foreach(Product p in products)
+        foreach(Product p in _products)
         {
             total += p.GetPrice();
         }
@@ -35,7 +35,7 @@ class Order
     public string GetPackingLabel()
     {
         string label = "Packing label: \n";
-        foreach(Product p in products)
+        foreach(Product p in _products)
         {
             label += p.GetProductName() + p.GetProductID();
         }
@@ -45,7 +45,7 @@ class Order
     public string GetShippingLabel()
     {
         string label = "Shipping label: \n";
-        label += Customer.GetName();
+        label += Customer.GetCustomerName();
         label += Customer.GetAddress().ToString();
         return label;
     }

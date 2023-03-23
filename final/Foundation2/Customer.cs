@@ -1,7 +1,7 @@
 class Customer
 {
-    private string _customerName;
-    private Address _address;
+    protected string _customerName;
+    protected Address _address;
 
     public Customer(string customerName, Address address)
     {
@@ -11,12 +11,12 @@ class Customer
 
     public string GetCustomerName()
     {
-        return customerName;
+        return _customerName;
     }
 
     public Address GetAddress()
     {
-        return address;
+        return _address;
     }
 
     public bool InUSA()
