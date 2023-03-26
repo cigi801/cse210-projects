@@ -1,7 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Collections.Generic;
+//Parent class Budget
 
 class Budget
 {
@@ -9,14 +6,38 @@ class Budget
     protected string _name;
     protected double _amount;
 
-    protected List<Income> incomesList = new List<Income>();
-    protected List<Savings> savingsList = new List<Savings>();
-    protected List<Expense> expensesList = new List<Expense>();
-    
+    protected List<Income> _incomesList = new List<Income>();
+    protected List<Savings> _savingsList = new List<Savings>();
+    protected List<Expense> _expensesList = new List<Expense>();
+
+
+
     public Budget()
     {
 
     }
+
+    public List<Income> incomesList
+    {
+        get{ return _incomesList; }
+        set{ _incomesList = value; }
+    }
+
+    public List<Expense> expensesList
+    {
+        get{ return _expensesList; }
+        set{ _expensesList = value; }
+    }
+
+    public List<Savings> savingsList
+    {
+        get{ return _savingsList; }
+        set{ _savingsList = value; }
+    }
+
+
+
+
     public Budget(string budgetType, string name, double amount)
     {
         _budgetType = budgetType;
@@ -24,10 +45,22 @@ class Budget
         _amount = amount;
     }
 
+    public Budget(double amount)
+    {
+        _amount = amount;
+    }
+
+
 
     public virtual string GetBudget()
     {
         return $"{_name}: {_amount}";
+    }
+
+    public virtual string GetBudgetLine()
+    {
+        string budget = $"{_budgetType},{_name},{_amount}";
+        return budget;
     }
 
     public virtual string GetBudgetType()
@@ -35,20 +68,22 @@ class Budget
         return _budgetType;
     }
 
-    public virtual string GetName()
-    {
-        return _name;
-    }
-
     public virtual double GetAmount()
     {
         return _amount;
+    }
+
+    public virtual string GetName()
+    {
+        return _name;
     }
 
     public virtual void SetAmount(double amount)
     {
         _amount = amount;
     }
+
+
 
     
     public void AddIncome()
@@ -111,34 +146,6 @@ class Budget
             Console.WriteLine("What is the name of the budget item you would like to edit? ");
 
     }
-
-    
-    // public void DisplayBudget()
-    // {
-    //     Console.WriteLine("Your Income items ");
-    //         for(int i = 0; i < incomesList.Count(); i++)
-    //         {
-    //             Console.WriteLine($"{incomesList[i].GetBudget()}");
-    //         }
-
-    //         Console.WriteLine("Your Expense items ");
-    //         for(int i = 0; i < expensesList.Count(); i++)
-    //         {   
-    //             Console.WriteLine($"{expensesList[i].GetBudget()}");
-    //         }
-
-    //         Console.WriteLine("Your Savings items ");
-    //         for(int i = 0; i < savingsList.Count(); i++)
-    //         {   
-    //             Console.WriteLine($"{savingsList[i].GetBudget()}");
-    //         }
-    // }
-
-    // public virtual void GetBalance()
-    // {
-
-    // }
-
 
 
 }

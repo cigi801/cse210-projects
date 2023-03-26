@@ -20,6 +20,7 @@ class Program
         List<Income> incomesList = new List<Income>();
         List<Expense> expensesList = new List<Expense>();
         List<Savings> savingsList = new List<Savings>();
+
         
 
         while(true)
@@ -59,10 +60,13 @@ class Program
 
         
 
-        //Edit Budget
+        //Edit Budget (still working on this, need to move edit code below to Budget.EditBudget())
+        //I will change userInput to be budget type instead of int
         else if (choice == 4)
         {
             budget.EditBudget();
+            
+
             
             // Console.WriteLine("Please enter the number of the budget item you'd like to update ");
             // int userInput = int.Parse(Console.ReadLine());
@@ -83,59 +87,58 @@ class Program
             //     Console.WriteLine($"{i + 1}. {budgets[i].GetBudget()}");
             // }
 
-
-
             
         }
 
         //Save Budget
         else if (choice == 5)
         {
-            budgetFile.SaveBudget();
+            budgetFile.SaveBudget(budget.incomesList, budget.expensesList, budget.savingsList);
         }
 
         //Load Budget
+        //Still working on this, load budget saves new list in BudgetFile instead of Budget. The other classes use the list from Budget
         else if (choice == 6)
         {
             budgetFile.LoadBudget();
+            
         }
 
         //View budget analysis
         else if (choice == 7)
         {
-            budgetDisplay.DisplayBudget();
+            //This is only working with newly added budget items. Will not work with loaded file
+            budgetDisplay.DisplayBudget(budget.incomesList, budget.expensesList, budget.savingsList);
 
             Console.WriteLine("What would you like to do? ");
-            Console.WriteLine("1. View Budget Balance\n2. View Percentage Breakdown\n3. View Yearly Analysis ");
+            Console.WriteLine("1. View Budget Balance\n2. View Percentage Breakdown\n");
 
             int analysisChoice = int.Parse(Console.ReadLine());
 
+            //Balances
+            //Will show the total amount income, expenses and savings
+            //Still working on this, need to figure out how to get amount from lists and add them togehter
             if (analysisChoice == 1)
             {
-                balance.GetBalance();
+
+                balance.GetBalance(budget.incomesList, budget.expensesList, budget.savingsList);
                 // Console.WriteLine($"Total Monthly Income: {budgets.Where(b => b.GetBudgetType() == "Income").Sum(b => b.GetAmount())}");
                 // Console.WriteLine($"Total Monthly Expenses: {budgets.Where(b => b.GetBudgetType() == "Expense").Sum(b => b.GetAmount())}");
                 // Console.WriteLine($"Total Monthly Savings: {budgets.Where(b => b.GetBudgetType() == "Savings").Sum(b => b.GetAmount())}");
                 
             }
 
+            //Percentages
+            //Will show the percentages of each budget type
             else if (analysisChoice == 2)
             {
-
-            }
-
-            else if (analysisChoice == 3)
-            {
-
+                
             }
 
             else
             {
-                Console.WriteLine("");
+                Console.WriteLine("Please enter a valid option. ");
             }
-
-
-
         
         }
 

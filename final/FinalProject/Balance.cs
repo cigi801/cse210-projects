@@ -1,20 +1,11 @@
+
 class Balance : Budget
 {
     protected double _totalIncome;
     protected double _totalExpenses;
     protected double _totalSavings;
 
-    protected double _balance;
-
-    protected List<Income> incomesList = new List<Income>();
-    protected List<Savings> savingsList = new List<Savings>();
-    protected List<Expense> expensesList = new List<Expense>();
-
     public Balance()
-    {
-
-    }
-    public Balance(string budgetType, string name, double amount) : base(budgetType, name, amount)
     {
 
     }
@@ -26,29 +17,40 @@ class Balance : Budget
         _totalSavings = totalSavings;
     }
 
-    public void GetBalance()
+    public override double GetAmount()
     {
+        return _amount;
+    }
+
+    public void GetBalance(List<Income> incomesList, List<Expense> expensesList, List<Savings> savingsList)
+    {
+        
         double totalIncome = 0;
         double totalExpenses = 0;
         double totalSavings = 0;
         Console.WriteLine("Income: ");
-        foreach(Income income in incomesList)
-            {
-               totalIncome += income.GetAmount();
-            }
-            Console.WriteLine(_totalIncome);
+        foreach(var income in incomesList)
+        {
+            // totalIncome += income; 
+            Console.WriteLine(income.GetAmount());
+        }
+        // Console.WriteLine(totalIncome);
+
         Console.WriteLine("Expenses: ");
-        foreach(Expense expense in expensesList)
-            {
-                totalExpenses += expense.GetAmount();
-            }
-            Console.WriteLine(_totalExpenses);
+        foreach(var expense in expensesList)
+        {
+            // totalExpenses += expense;
+            Console.WriteLine(expense.GetAmount());
+        }
+
+
+        Console.WriteLine(totalExpenses);
         Console.WriteLine("Savings: ");
-        foreach(Savings savings in savingsList)
+        foreach(var savings in savingsList)
             {
-              totalSavings += savings.GetAmount();
-              Console.WriteLine(_totalSavings);
+            Console.WriteLine(savings.GetAmount());
             }
+
     }
 
 

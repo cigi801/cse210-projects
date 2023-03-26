@@ -1,55 +1,35 @@
-class BudgetDisplay
+class BudgetDisplay : Budget
 {
-
-    protected string _budgetType;
-    protected string _name;
-    protected double _amount;
-
-    protected List<Income> incomesList = new List<Income>();
-    protected List<Savings> savingsList = new List<Savings>();
-    protected List<Expense> expensesList = new List<Expense>();
 
 
     public BudgetDisplay()
     {
-        
-    }
-
-    public BudgetDisplay(string name, double amount)
-    {
-        _name = name;
-        _amount = amount;
-    }
-
-    public BudgetDisplay(string budgetType, string name, double amount)
-    {
-        _budgetType = budgetType;
-        _name = name;
-        _amount = amount;
+        incomesList = new List<Income>();
+        savingsList = new List<Savings>();
+        expensesList = new List<Expense>();
     }
 
 
-    public void DisplayBudget()
+    public void DisplayBudget(List<Income> incomesList, List<Expense> expensesList, List<Savings> savingsList)
     {
-        Console.WriteLine("Your Income items ");
-            for(int i = 0; i < incomesList.Count(); i++)
+            Console.WriteLine("Your Income items ");
+            foreach(Income income in incomesList)
             {
-                Console.WriteLine($"{incomesList[i].GetBudget()}");
+                Console.WriteLine($"{income.GetBudget()}");
             }
 
             Console.WriteLine("Your Expense items ");
-            for(int i = 0; i < expensesList.Count(); i++)
+            foreach(Expense expense in expensesList)
             {   
-                Console.WriteLine($"{expensesList[i].GetBudget()}");
+                Console.WriteLine($"{expense.GetBudget()}");
             }
 
             Console.WriteLine("Your Savings items ");
-            for(int i = 0; i < savingsList.Count(); i++)
+            foreach(Savings savings in savingsList)
             {   
-                Console.WriteLine($"{savingsList[i].GetBudget()}");
+                Console.WriteLine($"{savings.GetBudget()}");
             }
     }
-
 
 
 }

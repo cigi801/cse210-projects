@@ -1,0 +1,5 @@
+Income,WORK,500
+Income,WORK2,400
+Savings,EMERGENCY,10
+Expense,GAS,20
+Expense,GROCERIES,100
