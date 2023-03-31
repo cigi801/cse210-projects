@@ -1,0 +1,6 @@
+Income,WORK,500
+Income,JOB2,400
+Expense,GROCERIES,50
+Expense,GAS,20
+Savings,EMERGENCY,20
+Charity,TITHING,9
